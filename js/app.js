@@ -69,6 +69,8 @@ var Marker = function(data) {
     this.setBounce = function() {
       this.googleMarker.setAnimation(google.maps.Animation.BOUNCE);
       this.selected(true);
+      // Set map center so on mobile marker is always visible.
+      map.setCenter(this.googleMarker.getPosition());
     };
 
     // Remove bouncing
