@@ -99,7 +99,7 @@ var Info = function() {
     // Initialize view for specific name
     this.init = function(name) {
       var self = this;
-      self.title(name);
+      self.title(name+' wiki');
       self.articles([]);
       self.message('');
 
@@ -156,6 +156,7 @@ var ViewModel = function() {
       });
 
       clickedMarker.setBounce();
+      self.showInfo(clickedMarker);
     };
 
     this.search = function(value) {
@@ -182,6 +183,15 @@ var viewModel = new ViewModel();
 viewModel.query.subscribe(viewModel.search);
 ko.applyBindings(viewModel);
 
+// 
+
+$(function() {
+  $('#markers').collapsible('default', {
+    /* Classes for dropdown arrow */
+    animate: true,
+    contentOpen: 0
+  });
+});
 
 
 
